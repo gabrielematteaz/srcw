@@ -20,7 +20,7 @@ namespace srcw
 
                 carattereN = riga.IndexOf(args[2]);
                 if (carattereN > -1)
-                    Console.WriteLine("- Riga (" + rigaN + ")\t\tCarattere (" + carattereN + ')');
+                    Console.WriteLine("- R:" + rigaN + " C:" + carattereN + " \"" + riga + '\"');
 
                 rigaN++;
             }
@@ -45,12 +45,17 @@ namespace srcw
             if (args.Length == 3)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Occorrenze:");
 
                 if (File.Exists(args[1]))
+                {
+                    Console.WriteLine("Occorrenze nel file:");
                     SearchWord(args[1]);
+                }
                 else if (Directory.Exists(args[1]))
+                {
+                    Console.WriteLine("Occorrenze nella directory:");
                     ProcessDirectory(args[1]);
+                }
                 else
                     Console.WriteLine("Il percorso non è né un file né una directory");
             }
